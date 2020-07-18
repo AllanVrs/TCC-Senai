@@ -4,21 +4,10 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<title>Carnes do Bom</title>
-		<style type="text/css">
-		#geral{
-        width: 500px;
-        margin: 0 auto;
-    }
- 
-    .form{
-        width: 300px;
-        margin: 0 auto;
-    }
-
-		
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/css.css">
 	</head>
 
+	<body>
 		<header>
 		
 			<nav class="navbar navbar-expand-lg navbar-dark	 bg-danger">
@@ -29,11 +18,11 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 					  <li class="nav-item">
-					    <a class="nav-link" href="novousu.html">Cadastrar-se</a>
+					    <a class="nav-link" href="novousu.html">Logar</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href="login.html">Logar</a>
-					  </li>							
+					    <a class="nav-link" href="#">Carrinho</a>
+					  </li>
 					</ul>
 				</div>
 			  	<form class="form-inline my-2 my-lg-0">
@@ -41,41 +30,47 @@
 			      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
 			    </form>   
 			</nav>
-   		</header>
+			<div id="base-carrinho">
+				<h2 class="fundo-azul"> <img src="imagens/barra-carrinho01.png"> </h2>
+				<h3> <img src="imagens/meu-carrinho.png"> </h3>
+					<div class="dados-carrinho">
+						<form name="frmCarrinho" action="op_carrinho.php">
+							<table cellpadding="0" cellspacing="0" border="1">
+								<thead>
+									<tr>
+										<th>Descrição do produto </th>
+										<th>Quantidade </th>
+										<th>Preço unitário </th>
+										<th>Subtotal </th>
+										<th>Remover </th>
+									</tr>
+								</thead>
 
-			<hr class="border-danger">
+								<tbody>
+									<tr>
+										<td>
+											<strong>Acém</strong>
+										</td>
+										<td> <input type="text" name=""> </td>
+										<td>R$ 37,90 </td>
+										<td>R$ 30,00</td>
+										<td><input type="submit" name="Remover" value="Remover"> </td>
+									</tr>
+									<tr>
+										<td><input type="submit" name="Atualizar" value="Atualizar"></td>
+										<td colspan="5">Valor total</td>
+									</tr>
 
-		<body >		
-				<div id="geral">
-			    <form class="form" action="login.php" method="post" id="formlogin" name="formlogin">
-			 <br>
-			 <h1 style="color: #FF4040;" class="text-center">Login</h1>
-			 <br>
-					  <label for="inputEmail" class="sr-only">Email</label>
-					  <input style="width: 300px;" type="email" name="emailusu" id="emailusu" class="form-control" placeholder="Digite seu email..." required autofocus>
-				  <br>
-			  
-					  <label for="inputPassword" class="sr-only">Senha</label>
-					  <input style="width: 300px;" type="password" name="senhausu" id="senhausu" class="form-control" placeholder="***********" required>
-			  	<br>
-			  <div class="checkbox mb-3">
-			    <label>
-			      <input type="checkbox" value="remember-me"> Lembre de mim
-			    </label>
-			  </div>
-			  <button class="btn btn-lg btn-danger btn-block" value="submit" type="submit">Entrar</button>
-			</form>
-		</div>
-
+								</tbody>			
+							</table>
+						</form>
+					</div>
+					<div id="linha">
+						<img src="imagens/finalizar-compra.png"><img src="imagens/continuar-comprando.png">
+					</div>
+			</div>
 			
-				<hr class="border-danger">		
-
-		</body>
-
-
-
-
-
+		<hr class="border-danger">
 
 		<footer class="text-muted">
 		  <div class="container">

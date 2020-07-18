@@ -4,7 +4,31 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<title>Carnes do Bom</title>
-
+		<style type="text/css">
+			/*Link não visitado */
+			a:link {
+			  color: black;
+			  text-decoration: none;
+			}
+			 
+			/*Link já visitado*/
+			a:visited {
+			  color: black;
+			  text-decoration: none;
+			}
+			 
+			/*Quando o mouse passa por cima*/
+			a:hover {
+			  color: black;
+			  text-decoration: none;
+			}
+			 
+			/*Link ativo/selecionado*/
+			a:active {
+			  color: black;
+			  text-decoration: none;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -18,10 +42,10 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 					  <li class="nav-item">
-					    <a class="nav-link" href="escolhaCad.html">Cadastre-se</a>
+					    <a class="nav-link" href="novousu.html">Cadastre-se</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href="escolhaLogin.html">Logar</a>
+					    <a class="nav-link" href="login.html">Logar</a>
 					  </li>
 					  <li class="nav-item">
 					    <a class="nav-link" href="#">Carrinho</a>
@@ -31,9 +55,9 @@
 	                        session_start();
 	                        include ("conecta.php");
 	                        $user =  $_SESSION["user"];
-	                        $logado = mysqli_query($conn,"SELECT * FROM usuario WHERE emailusu = '$user'") or die("Erro ao selecionar!");
+	                        $logado = mysqli_query($conn,"SELECT * FROM vendedor WHERE emailvend = '$user'") or die("Erro ao selecionar!");
 	                        $dado = mysqli_fetch_assoc($logado);
-	                        echo $dado['emailusu'];
+	                        echo $dado['emailvend'];
 	                        echo "&nbsp;|&nbsp;";
                     	?>
 					  </li>
@@ -51,7 +75,7 @@
 			    <p class="lead">Precisando de carnes para um churrasco de ultima hora? Ou deseja comer uma ótima carne? Peça no Carnes do Bom!!</p>
 			</div>
 		</header>
-<hr class="border-danger" style="">
+<hr class="border-danger">
 				
 
 		<main>
@@ -67,10 +91,12 @@
 			    			</div>
 			    			<div class="col-md-8">
 			      				<div class="card-body">
-			        				<h5 class="card-title" href="#">Casa de Carnes Tuiutí</h5>
-			        				<p class="card-text">• 43-53 min • 2.73 km • $ •</p>
-			        				
-			      				</div>
+			        				<a href="#" style="font-size: 20px; font-weight: bold;">Casa de Carnes Tuíuti</a>
+			        				<!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->
+			        				<br>
+			         				<p style="color: green;" class="card-text">• Entrega grátis</p>
+			         				<button class="btn btn-outline-danger my-2 my-sm-0" style="width: 90px; height: 35px;" type="submit">Visitar</button>
+			         			</div>
 			    			</div>
 			  			</div>
 					</div>
@@ -84,10 +110,12 @@
 			    			</div>
 			      			<div class="col-md-8">
 			       				<div class="card-body">
-			       					<a href="#">Carnes Ribeiro</a>
-			         				<p class="card-text">• 43-53 min • 2.73 km • $ •</p>
-			         				
-			       				</div>
+			         				<a href="#" style="font-size: 20px; font-weight: bold;">Carnes Ribeiro</a>
+			         				<!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->
+			         				<br>
+			         				<p class="card-text">• 43-53 min • Entrega R$ 6.99</p>
+			         				<button class="btn btn-outline-danger my-2 my-sm-0" style="width: 90px; height: 35px;" type="submit">Visitar</button>
+			         			</div>
 			      			</div>
 			  	 		</div>
 					</div>
@@ -99,13 +127,14 @@
 			      	<div class="card border-danger mb-3" style="max-width: 545px;">
 			  			<div class="row no-gutters">
 			    			<div class="col-md-4">
-			      				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQX_CeLJVL731EpbMcWFRNmcbCkHrjuF5fiiS6gEk3FsnGNQjx9&usqp=CAU" class="card-img" alt="..." width="164" height="149">
+			      				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQX_CeLJVL731EpbMcWFRNmcbCkHrjuF5fiiS6gEk3FsnGNQjx9&usqp=CAU" class="card-img" alt="..." width="164" height="152">
 			    			</div>
 			    			<div class="col-md-8">
 			      				<div class="card-body">
-			        				<h5 class="card-title">Casa de Carnes</h5>
-			        				<p class="card-text">• 43-53 min • 2.73 km • $ •</p>
-			        				
+			        				<a href="#" style="font-size: 20px; font-weight: bold;">Casa de Carnes</a>
+			        				<!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->			        				
+			         				<p class="card-text">• 43-53 min • Entrega R$ 6.99</p>
+			         				<button class="btn btn-outline-danger my-2 my-sm-0" style="width: 90px; height: 35px;" type="submit">Visitar</button>
 			      				</div>
 			    			</div>
 			  			</div>
@@ -120,9 +149,11 @@
 			    			</div>
 			      			<div class="col-md-8">
 			       				<div class="card-body">
-			         				<h5 class="card-title">Açougue Belas Carnes</h5>
-			         				<p class="card-text">• 43-53 min • 2.73 km • $ •</p>
-			         				
+			         				<a href="#" style="font-size: 20px; font-weight: bold;">Açougue Belas Carnes</a>
+			         				<!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->
+			         				<br>
+			         				<p style="color: green;" class="card-text">• Entrega grátis</p>
+			         				<button class="btn btn-outline-danger my-2 my-sm-0" style="width: 90px; height: 35px;" type="submit">Visitar</button>
 			       				</div>
 			      			</div>
 			  	 		</div>

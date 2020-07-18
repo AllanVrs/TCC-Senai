@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 10-Jul-2020 às 00:04
+-- Generation Time: 18-Jul-2020 às 04:58
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -25,6 +25,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `produto`
+--
+
+CREATE TABLE `produto` (
+  `id_prod` int(11) NOT NULL,
+  `nome_prod` varchar(85) COLLATE latin1_general_ci NOT NULL,
+  `preco_prod` decimal(10,0) NOT NULL,
+  `imagem_prod` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `usuario`
 --
 
@@ -39,7 +52,7 @@ CREATE TABLE `usuario` (
   `sexousu` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `emailusu` varchar(30) COLLATE latin1_general_ci NOT NULL,
   `senhausu` varchar(30) COLLATE latin1_general_ci NOT NULL,
-  `idusu` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `telefoneusu` varchar(15) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
@@ -47,69 +60,40 @@ CREATE TABLE `usuario` (
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`nomecomusu`, `nomeusu`, `cpfusu`, `enderecousu`, `complementousu`, `numerousu`, `celularusu`, `sexousu`, `emailusu`, `senhausu`, `idusu`, `telefoneusu`) VALUES
+INSERT INTO `usuario` (`nomecomusu`, `nomeusu`, `cpfusu`, `enderecousu`, `complementousu`, `numerousu`, `celularusu`, `sexousu`, `emailusu`, `senhausu`, `id_usuario`, `telefoneusu`) VALUES
 ('Allan Victor da Silva Rodrigues', 'AllanVictor', '15115151511', 'Rua Pioneiro JosÃ© Alves Filho', 'Casa', 66, '4432411136', 'masculino', 'allan_vrs@hotmail.com', '91440106oi', 3, '44998139852');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `vendedor`
---
-
-CREATE TABLE `vendedor` (
-  `idvend` int(11) NOT NULL,
-  `nomevend` varchar(50) COLLATE latin1_general_ci NOT NULL,
-  `estabelecimentovend` varchar(50) COLLATE latin1_general_ci NOT NULL,
-  `cnpjvend` varchar(20) COLLATE latin1_general_ci NOT NULL,
-  `enderecovend` varchar(30) COLLATE latin1_general_ci NOT NULL,
-  `celularvend` varchar(15) COLLATE latin1_general_ci NOT NULL,
-  `telefonevend` varchar(15) COLLATE latin1_general_ci NOT NULL,
-  `complementovend` varchar(25) COLLATE latin1_general_ci NOT NULL,
-  `numerovend` int(11) NOT NULL,
-  `infovend` text COLLATE latin1_general_ci,
-  `emailvend` varchar(30) COLLATE latin1_general_ci NOT NULL,
-  `senhavend` varchar(20) COLLATE latin1_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Extraindo dados da tabela `vendedor`
---
-
-INSERT INTO `vendedor` (`idvend`, `nomevend`, `estabelecimentovend`, `cnpjvend`, `enderecovend`, `celularvend`, `telefonevend`, `complementovend`, `numerovend`, `infovend`, `emailvend`, `senhavend`) VALUES
-(1, 'Allan', 'Carnes Ribeiro', '132131213123', 'Rua Pioneiro JosÃ© Alves Filho', '44998139852', '44998139852', 'PrÃ©dio', 66, 'idsakdgasdaskdhkashdlahoadhodasjdasd', 'allan_vrs@hotmail.com', '91440106oi'),
-(2, 'Allan', 'Carnes ', '213141413131231', 'Rua Pioneiro JosÃ© Alves Filho', '44998139852', '44998139852', 'PrÃ©dio', 66, 'daljdlsajlqweqwjelqjwejqwklelqw', 'allanvictor817@gmail.com', '39075806allan');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `produto`
+--
+ALTER TABLE `produto`
+  ADD PRIMARY KEY (`id_prod`);
+
+--
 -- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idusu`);
-
---
--- Indexes for table `vendedor`
---
-ALTER TABLE `vendedor`
-  ADD PRIMARY KEY (`idvend`);
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `produto`
+--
+ALTER TABLE `produto`
+  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `vendedor`
---
-ALTER TABLE `vendedor`
-  MODIFY `idvend` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
