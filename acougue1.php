@@ -1,10 +1,25 @@
+<?php   
+  require_once "functions/product.php";
+  $pdoConnection = require_once "connection.php";
+  $products = getProducts($pdoConnection);
+?>
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <m,eta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="theme-color" content="#563d7c">
     <link rel="stylesheet" type="text/css" href="css/css.css">
+    <style type="text/css">
+      .relative{
+        position: relative;
+        top: 0px;
+        left: -9px;
+      }
+      .font{
+        font-size: 14px
+      }
+    </style>
     <title>Carnes do Bom</title>
   </head>
 
@@ -12,14 +27,17 @@
     <header>
     
       <nav class="navbar navbar-expand-lg navbar-dark  bg-danger">
-          <a class="navbar-brand" href="index.html">Carnes do Bom</a>
+          <a class="navbar-brand" href="index-logado.php">Carnes do Bom</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="novousu.html">Logar</a>
+              <a class="nav-link" href="novousu.html">Cadastrar-se</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">Logar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Carrinho</a>
@@ -45,80 +63,128 @@
   <div class="my-3 p-3 bg-white rounded shadow-sm">
     <h6 class="border-bottom border-gray pb-2 mb-0" id="ListaCortes">Cortes Bovinos</h6>
     <div class="media text-muted pt-1">
-      <div class="row">
-
-          <div class="col-sm">
-              <div class="card border-danger mb-3" style="max-width: 545px; max-height: 100px;">
-              <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="imagens/carne1.jpg" class="card-img" alt="..." width="70" height="99">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                      <h4>Acém</h4>
-                      <div>
-                        <form action="op_carrinho.php">
-                          <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Comprar</button>
-                        </form>
-                      </div>
-                    </div>
-                </div>
-              </div>
-          </div>
-          </div>
-
-          <div class="col-sm">
-            <div class="card border-danger mb-3" style="max-width: 545px; max-height: 100px;">
-              <div class="row no-gutters">
-                <div class="col-md-4">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJDjq6tF_h7vbhzYLWVsRXgWmZIb4wUS4xZUqLxUuDaUg-sH1o&usqp=CAU" class="card-img" alt="..." width="70" height="95">
-                </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h4>Alcatra com maminha</h4>
-                    </div>
-                  </div>
+      <div class="container">
+        <div class="row">
+          <?php foreach($products as $product) : ?>
+          <div class="col-4">
+            <div class="card">
+              <div class="card-body">
+                 <h4 class="card-title"><?php echo $product['nome']?></h4>
+                 <h6 class="card-subtitle mb-2 text-muted">
+                    R$<?php echo number_format($product['preco'], 2, ',', '.')?>
+                 </h6>
+                 <a href="carrinho.php?acao=add&id=<?php echo $product['id']?>"><button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Comprar</button> </a>
               </div>
             </div>
           </div>
 
+          <?php endforeach;?> 
         </div>
-  </div>
+      </div>
+    </div>
+
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <h6 class="border-bottom border-gray pb-2 mb-0" id="ListaCortes">Cortes Suínos</h6>
+    <div class="media text-muted pt-1">
+      <div class="container">
+        <div class="row">
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="my-3 p-3 bg-white rounded shadow-sm">
+    <h6 class="border-bottom border-gray pb-2 mb-0" id="ListaCortes">Frios</h6>
+    <div class="media text-muted pt-1">
+      <div class="container">
+        <div class="row">
+          
+        </div>
+      </div>
+    </div>
 
   <div class="my-3 p-3 bg-white rounded shadow-sm">
-    <h6 class="border-bottom border-gray pb-2 mb-0">Suggestions</h6>
-    <div class="media text-muted pt-3">
-      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-      <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <div class="d-flex justify-content-between align-items-center w-100">
-          <strong class="text-gray-dark">Full Name</strong>
-          <a href="#">Follow</a>
+    <h6 class="border-bottom border-gray pb-2 mb-0">Outros Açougues</h6>
+    <div class="container">
+        <div class="row">
+
+          <div class="col-sm">
+              <div class="card border-danger mb-3" style="max-width: 350px; height: 110px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="imagens/icone2.png" class="card-img" alt="..." width="104" height="109">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                      <a href="#" style="font-size: 20px; font-weight: bold;">Casa de Carnes Ville</a>
+                      <!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->
+                      <br>
+                      <p style="color: green; " class="card-text">• Entrega grátis</p>
+                    </div>
+                </div>
+              </div>
+          </div>
+          </div>
+
+          <div class="col-sm">
+              <div class="card border-danger mb-3" style="max-width: 350px; height: 110px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="imagens/icone1.jpg" class="card-img" alt="..." width="104" height="107">
+                </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <a href="#" style="font-size: 20px; font-weight: bold;">Carnes Ribeiro</a>
+                      <!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->
+                      <br>
+                      <p class="font" class="card-text">• 43-53 min • Entrega R$ 6.99</p>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          </div>
         </div>
-        <span class="d-block">@username</span>
-      </div>
-    </div>
-    <div class="media text-muted pt-3">
-      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-      <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <div class="d-flex justify-content-between align-items-center w-100">
-          <strong class="text-gray-dark">Full Name</strong>
-          <a href="#">Follow</a>
+
+        <div class="row">
+          <div class="col-sm">
+              <div class="card border-danger mb-3" style="max-width: 350px; height: 110px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="imagens/icone3.jpg" class="card-img" alt="..." width="104" height="109">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                      <a href="#" style="font-size: 20px; font-weight: bold;">Açougue União</a>
+                      <!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->                     
+                      <p class="font" class="card-text">• 43-53 min • Entrega R$ 6.99</p>
+                    </div>
+                </div>
+              </div>
+          </div>
+          </div>
+
+          <div class="col-sm">
+              <div class="card border-danger mb-3" style="max-width: 350px; height: 110px;">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTgZ65M-YCRWBrk7-n9OScq2xMNwQ2vir8fEcnGxHe6OlZb0JcK&usqp=CAU" class="card-img" alt="..." width="104" height="109">
+                </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <a href="#" style="font-size: 20px; font-weight: bold;">Açougue</a>
+                      <!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->
+                      <br>
+                      <p style="color: green;" class="card-text">• Entrega grátis</p>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          </div>
         </div>
-        <span class="d-block">@username</span>
       </div>
-    </div>
-    <div class="media text-muted pt-3">
-      <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-      <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-        <div class="d-flex justify-content-between align-items-center w-100">
-          <strong class="text-gray-dark">Full Name</strong>
-          <a href="#">Follow</a>
-        </div>
-        <span class="d-block">@username</span>
-      </div>
-    </div>
+    
     <small class="d-block text-right mt-3">
-      <a href="#">All suggestions</a>
+      <a href="index-logado.php">Ver todos</a>
     </small>
   </div>
 </main>
@@ -132,8 +198,10 @@
         <p class="float-right">
           <a href="#">Voltar ao topo</a>
         </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
+        <h4>Menu</h4>
+        <p><a href="" class="text-muted">Trabalhe Conosco</a></p>
+        <p>Email: carnesdobom@gmail.com</p>
+        <p><a href="" class="text-muted">Duvidas</a></p>
       </div>
     </footer>
 

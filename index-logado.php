@@ -42,24 +42,25 @@
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
 					  <li class="nav-item">
-					    <a class="nav-link" href="novousu.html">Cadastre-se</a>
+					    <a class="nav-link" href="novousu.html">Cadastrar-se</a>
 					  </li>
 					  <li class="nav-item">
 					    <a class="nav-link" href="login.html">Logar</a>
 					  </li>
 					  <li class="nav-item">
-					    <a class="nav-link" href="#">Carrinho</a>
+					    <a class="nav-link" href="carrinho.php">Carrinho</a>
 					  </li>
 					  <li>
-					  	<?php
+					  	<?php/*
 	                        session_start();
-	                        include ("conecta.php");
+	                        include ("connection.php");
 	                        $user =  $_SESSION["user"];
-	                        $logado = mysqli_query($conn,"SELECT * FROM vendedor WHERE emailvend = '$user'") or die("Erro ao selecionar!");
+	                        $logado = mysqli_query($conn,"SELECT * FROM usuario WHERE emailusu = '$user'") or die("Erro ao selecionar!");
 	                        $dado = mysqli_fetch_assoc($logado);
-	                        echo $dado['emailvend'];
-	                        echo "&nbsp;|&nbsp;";
+	                        echo $dado['emailusu'];
+	                        echo "&nbsp;|&nbsp;";*/
                     	?>
+
 					  </li>
 					</ul>
 				</div>
@@ -75,7 +76,7 @@
 			    <p class="lead">Precisando de carnes para um churrasco de ultima hora? Ou deseja comer uma ótima carne? Peça no Carnes do Bom!!</p>
 			</div>
 		</header>
-<hr class="border-danger">
+<hr style="padding-top: 10px;" class="border-danger">
 				
 
 		<main>
@@ -87,11 +88,11 @@
 			      	<div class="card border-danger mb-3" style="max-width: 545px;">
 			  			<div class="row no-gutters">
 			    			<div class="col-md-4">
-			      				<img src="imagens/carne1.jpg" class="card-img" alt="..." width="164" height="149">
+			      				<img src="imagens/icone2.png" class="card-img" alt="..." width="164" height="149">
 			    			</div>
 			    			<div class="col-md-8">
 			      				<div class="card-body">
-			        				<a href="#" style="font-size: 20px; font-weight: bold;">Casa de Carnes Tuíuti</a>
+			        				<a href="#" style="font-size: 20px; font-weight: bold;">Casa de Carnes Ville</a>
 			        				<!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->
 			        				<br>
 			         				<p style="color: green;" class="card-text">• Entrega grátis</p>
@@ -106,7 +107,7 @@
 			      	<div class="card border-danger mb-3" style="max-width: 545px;">
 			  			<div class="row no-gutters">
 			    			<div class="col-md-4">
-			      				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTJDjq6tF_h7vbhzYLWVsRXgWmZIb4wUS4xZUqLxUuDaUg-sH1o&usqp=CAU" class="card-img" alt="..." width="164" height="149">
+			      				<img src="imagens/icone1.jpg" class="card-img" alt="..." width="164" height="149">
 			    			</div>
 			      			<div class="col-md-8">
 			       				<div class="card-body">
@@ -114,7 +115,7 @@
 			         				<!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->
 			         				<br>
 			         				<p class="card-text">• 43-53 min • Entrega R$ 6.99</p>
-			         				<button class="btn btn-outline-danger my-2 my-sm-0" style="width: 90px; height: 35px;" type="submit">Visitar</button>
+			         				<a href="acougue1.php"><button class="btn btn-outline-danger my-2 my-sm-0" style="width: 90px; height: 35px;" type="submit">Visitar</button></a>
 			         			</div>
 			      			</div>
 			  	 		</div>
@@ -127,11 +128,11 @@
 			      	<div class="card border-danger mb-3" style="max-width: 545px;">
 			  			<div class="row no-gutters">
 			    			<div class="col-md-4">
-			      				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQX_CeLJVL731EpbMcWFRNmcbCkHrjuF5fiiS6gEk3FsnGNQjx9&usqp=CAU" class="card-img" alt="..." width="164" height="152">
+			      				<img src="imagens/icone3.jpg" class="card-img" alt="..." width="164" height="152">
 			    			</div>
 			    			<div class="col-md-8">
 			      				<div class="card-body">
-			        				<a href="#" style="font-size: 20px; font-weight: bold;">Casa de Carnes</a>
+			        				<a href="#" style="font-size: 20px; font-weight: bold;">Açougue União</a>
 			        				<!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->			        				
 			         				<p class="card-text">• 43-53 min • Entrega R$ 6.99</p>
 			         				<button class="btn btn-outline-danger my-2 my-sm-0" style="width: 90px; height: 35px;" type="submit">Visitar</button>
@@ -149,7 +150,7 @@
 			    			</div>
 			      			<div class="col-md-8">
 			       				<div class="card-body">
-			         				<a href="#" style="font-size: 20px; font-weight: bold;">Açougue Belas Carnes</a>
+			         				<a href="#" style="font-size: 20px; font-weight: bold;">Açougue</a>
 			         				<!--<p class="card-text">• 43-53 min • 2.73 km • $ •</p>-->
 			         				<br>
 			         				<p style="color: green;" class="card-text">• Entrega grátis</p>
@@ -170,8 +171,10 @@
 		    <p class="float-right">
 		      <a href="#">Voltar ao topo</a>
 		    </p>
-		    <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-		    <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.4/getting-started/introduction/">getting started guide</a>.</p>
+		    <h4>Menu</h4>
+		    <p><a href="" class="text-muted">Trabalhe Conosco</a></p>
+		    <p>Email: carnesdobom@gmail.com</p>
+		    <p><a href="" class="text-muted">Duvidas</a></p>
 		  </div>
 		</footer>
 
