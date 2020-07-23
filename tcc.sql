@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 18-Jul-2020 às 04:58
+-- Generation Time: 23-Jul-2020 às 04:09
 -- Versão do servidor: 10.1.40-MariaDB
 -- versão do PHP: 7.3.5
 
@@ -25,15 +25,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `produto`
+-- Estrutura da tabela `produtos`
 --
 
-CREATE TABLE `produto` (
-  `id_prod` int(11) NOT NULL,
-  `nome_prod` varchar(85) COLLATE latin1_general_ci NOT NULL,
-  `preco_prod` decimal(10,0) NOT NULL,
-  `imagem_prod` blob NOT NULL
+CREATE TABLE `produtos` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) COLLATE latin1_general_ci NOT NULL,
+  `preco` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`id`, `nome`, `preco`) VALUES
+(1, 'Alcatra', '37.00'),
+(2, 'Picanha', '40.00'),
+(3, 'Ponta de Peito', '13.00'),
+(4, 'Acém', '15.00');
 
 -- --------------------------------------------------------
 
@@ -61,17 +70,19 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`nomecomusu`, `nomeusu`, `cpfusu`, `enderecousu`, `complementousu`, `numerousu`, `celularusu`, `sexousu`, `emailusu`, `senhausu`, `id_usuario`, `telefoneusu`) VALUES
-('Allan Victor da Silva Rodrigues', 'AllanVictor', '15115151511', 'Rua Pioneiro JosÃ© Alves Filho', 'Casa', 66, '4432411136', 'masculino', 'allan_vrs@hotmail.com', '91440106oi', 3, '44998139852');
+('Allan Victor da Silva Rodrigues', 'AllanVictor', '15115151511', 'Rua Pioneiro JosÃ© Alves Filho', 'Casa', 66, '4432411136', 'masculino', 'allan_vrs@hotmail.com', '91440106oi', 3, '44998139852'),
+('Fernanda Gomes do Prado', 'FernandaGomes', '234567890', 'Rua Pioneiro JosÃ© Alves Filho', 'Casa', 66, '4432411136', 'feminino', 'fernangomes@gmail.com', '39075806allan', 4, '44998139852'),
+('Maria Claudia da Silva Rodrigues', 'MariaClau', '12121212121', 'Rua Pioneiro JosÃ© Alves Filho', 'Casa', 66, '4432411136', 'feminino', 'allanvictor817@gmail.com', '91440106oi', 5, '44998139852');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `produto`
+-- Indexes for table `produtos`
 --
-ALTER TABLE `produto`
-  ADD PRIMARY KEY (`id_prod`);
+ALTER TABLE `produtos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `usuario`
@@ -84,16 +95,16 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT for table `produto`
+-- AUTO_INCREMENT for table `produtos`
 --
-ALTER TABLE `produto`
-  MODIFY `id_prod` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `produtos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
